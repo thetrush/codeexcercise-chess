@@ -1,0 +1,94 @@
+#
+# Establish board
+#
+class Chess_Board:
+    def __init__(self):
+
+    def create_board(self):
+        board_x=[]
+
+        for x in range(8):
+            board_y =[]
+            for y in range(8):
+#
+# Queen, Knight Rook
+#
+        board_x[7][3] = 'Q'
+        board_x[7][1] = 'N'
+        board_x[7][0] = 'R'
+        return board_x
+
+class WHITE_QUEEN(Chess_Board):
+    def __init__(self):
+        Chess_Board.__init__(self)
+        self.position_x_WK = 7
+        self.position_y_WK = 4
+
+    def move(self):
+        while True:
+            try:
+                print ('give a x and y coordinate for WHITE QUEEN’)
+                destination_x_WK = int(input())
+                destination_y_WK = int(input())
+
+           except:
+                pass
+
+
+
+class WHITE_ROOK(Chess_Board):
+
+    def __init__(self):
+        Chess_Board.__init__(self)
+        self.position_x_WR = 7
+        self.position_y_WR = 0
+        self.symbol_WR = 'R'
+
+    def move(self):
+        while True:
+            try:
+                print ('give a x and y coordinate for WHITE ROOK ')
+                destination_x_WR = int(input())
+                destination_y_WR = int(input())
+
+class WHITE_KNIGHT(Chess_Board):
+    def __init__(self):
+        Chess_Board.__init__(self)
+        self.position_x_WKN = 7
+        self.position_y_WKN = 1
+        self.symbol_WKN = 'N'
+
+    def move(self):
+        while True:
+            try:
+                print ('give a x and y coordinate for WHITE KNIGHT')
+                destination_x_WKN = int(input())
+                destination_y_WKN = int(input())
+
+class Engine(Chess_Board):
+
+    def __init__(self):
+        WHITE_QUEEN.__init__(self)
+        WHITE_KNIGHT.__init__(self)
+        Chess_Board.__init__(self)
+
+        while True:
+            choice=str(input())
+            if  choice == 'white_queen':
+                WHITE_QUEEN.move(self)
+                break
+            elif  choice == 'white_knight':
+                WHITE_KNIGHT.move(self)
+                break
+            elif  choice == 'white_rook':
+                WHITE_ROOK.move(self)
+                break
+            else:
+                print ('please choose again')
+
+
+    def display(self):
+        for i in range (8):
+            for j in range (8):
+                print (self.board[i][j], end=' ')
+            print ()
